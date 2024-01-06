@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="xsl.xsl"?>
+<school xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="shema2.xsd">
+
+    <!-- Users -->
+    <users>
+        <user username="admin" password="adminpass" role="admin"/>
+        <user username="superadmin" password="superadmin" role="superadmin"/>
+        <user username="student1" password="studentpass" role="student"/>
+        <user username="student2" password="studentpass2" role="student"/>
+        <!-- Add more users as needed -->
+    </users>
+
+    <!-- Departments -->
+    <departments>
+        <department id="1" name="Informatique"/>
+        <department id="2" name="Économie"/>
+        <!-- Add more departments as needed -->
+    </departments>
+
+    <!-- Filières (Study Programs) -->
+    <filieres>
+        <filiere id="101" name="Génie Informatique" department="1"/>
+        <filiere id="102" name="Intelligence Artificielle" department="1"/>
+        <filiere id="201" name="Techniques de Management" department="2"/>
+        <!-- Add more filières as needed -->
+    </filieres>
+
+    <!-- Courses (Matieres) -->
+    <matieres>
+        <matiere id="1001" name="Langage C" filiere="101"/>
+        <matiere id="1002" name="Analyse Numérique" filiere="101"/>
+        <matiere id="2001" name="Organisation des entreprises" filiere="201"/>
+        <!-- Add more matieres as needed -->
+    </matieres>
+
+    <!-- Students -->
+    <students>
+        <student id="1" username="student1">
+            <details>
+                <fullname>
+                    <fname>Zakariae</fname>
+                    <lname>LAALIJI</lname>
+                </fullname>
+                <birthdate>09/12/2002</birthdate>
+                <tel>7374628443</tel>
+                <email>laaliji@yahoo.fr</email>
+                <cin>AB123456</cin>
+                <cne>R123456789</cne>
+                <apoge>917492360</apoge>
+            </details>
+        </student>
+        <student id="2" username="student2">
+            <details>
+                <fullname>
+                    <fname>Yahya</fname>
+                    <lname>Saoud</lname>
+                </fullname>
+                <birthdate>05/10/2002</birthdate>
+                <tel>494837234</tel>
+                <email>sss@yahoo.fr</email>
+                <cin>AC143456</cin>
+                <cne>R128456789</cne>
+                <apoge>12864926482</apoge>
+            </details>
+        </student>
+        <!-- Add more students as needed -->
+    </students>
+
+    <!-- Student Applications -->
+    <applications>
+        <!-- Student 1 -->
+        <application student="student1" status="pending">
+            <details2>
+                <fullname>
+                    <fname>Zakariae</fname>
+                    <lname>LAALIJI</lname>
+                </fullname>
+                <MoyRegio>17.00</MoyRegio>
+                <MoyNatio>14.00</MoyNatio>
+                <MoyGen>15</MoyGen>
+                <Classement>1</Classement>
+                <Mention>Bien</Mention>
+                <Date>2022-10-12</Date>
+                
+            </details2>
+        </application>
+
+        <!-- Student 2 -->
+        <!-- Add more applications as needed -->
+    </applications>
+</school>

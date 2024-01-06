@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="xsl.xsl"?>
+<school xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="shema.xsd">
+    <!-- Users -->
+    <users>
+        <user username="admin" password="adminpass" role="admin"/>
+        <user username="superadmin" password="superadmin" role="superadmin"/>
+        <user username="student1" password="studentpass" role="student"/>
+        <user username="student2" password="studentpass2" role="student"/>
+        <user username="student3" password="studentpass3" role="student"/>
+        <user username="student4" password="studentpass4" role="student"/>
+        <user username="student5" password="studentpass5" role="student"/>
+        <user username="student6" password="studentpass6" role="student"/>
+        <user username="student7" password="studentpass7" role="student"/>
+        <user username="student8" password="studentpass8" role="student"/>
+        <user username="student9" password="studentpass9" role="student"/>
+        <user username="student10" password="studentpass10" role="student"/>
+        <user username="ttete2373" password="lol" role="student"/>
+    </users>
+
+    <!-- Student Applications -->
+    <applications>
+        <application student="student1" status="pending">
+            <details>
+                <fullname>
+                <fname>Zakariae</fname>
+                <lname>LAALIJI</lname>
+                </fullname>
+                <birthdate>09/12/2002</birthdate>
+                <tel>7374628443</tel>
+                <email>laaliji@yahoo.fr</email>
+                <cin>AB123456</cin>
+                <cne>R123456789</cne>
+                <apoge>917492360</apoge>
+            </details>
+        </application>
+        
+        <application student="student2" status="pending">
+            <details>
+                <fullname>
+                    <fname>Yahya</fname>
+                    <lname>Saoud</lname>
+                </fullname>
+                <birthdate>05/10/2002</birthdate>
+                <tel>494837234</tel>
+                <email>sss@yahoo.fr</email>
+                <cin>AC143456</cin>
+                <cne>R128456789</cne>
+                <apoge>12864926482</apoge>
+            </details>
+        </application>
+        
+        <application student="student3" status="pending">
+            <details>
+                <fullname>
+                <fname>Azzedine</fname>
+                <lname>NADIF</lname>
+                </fullname>
+                <birthdate>22/06/2002</birthdate>
+                <tel>273486200</tel>
+                <email>nadif@yahoo.fr</email>
+                <cin>AJ67456</cin>
+                <cne>K673456789</cne>
+                <apoge>74982389</apoge>
+            </details>
+        </application>
+        
+        <application student="student4" status="pending">
+            <details>
+                <fullname>
+                    <fname>Abderrahman</fname>
+                    <lname>DAKIR ALLAH</lname>
+                </fullname>
+                <birthdate>08/03/2002</birthdate>
+                <tel>174240232</tel>
+                <email>ar@yahoo.fr</email>
+                <cin>AB123457</cin>
+                <cne>R123426789</cne>
+                <apoge>092748264987</apoge>
+            </details>
+        </application>
+        
+        
+        <application student="student5" status="pending">
+            <details>
+                <fullname>
+                    <fname>Fahd</fname>
+                    <lname>El ATTAR</lname>
+                </fullname>
+                <birthdate>26/02/2002</birthdate>
+                <tel>912749861</tel>
+                <email>fahd@yahoo.fr</email>
+                <cin>AK123456</cin>
+                <cne>K63456789</cne>
+                <apoge>454456789</apoge>
+            </details>
+        </application>
+        
+        
+        <application student="student6" status="pending">
+            <details>
+                <fullname>
+                    <fname>Zakaria</fname>
+                    <lname>REKHLA</lname>
+                </fullname>
+                <birthdate>09/02/2002</birthdate>
+                <tel>9472983648</tel>
+                <email>ziko@yahoo.fr</email>
+                <cin>KL123456</cin>
+                <cne>K21456789</cne>
+                <apoge>4892481094</apoge>
+            </details>
+        </application>
+        
+        
+        <application student="student7" status="pending">
+            <details>
+                <fullname>
+                    <fname>Soufyane</fname>
+                    <lname>CHAJJAOUI</lname>
+                </fullname>
+                <birthdate>01/11/2002</birthdate>
+                <tel>0723456789</tel>
+                <email>souf@yahoo.fr</email>
+                <cin>MC123456</cin>
+                <cne>K423456789</cne>
+                <apoge>63963021</apoge>
+            </details>
+        </application>
+        
+        
+        <application student="student8" status="pending">
+            <details>
+                <fullname>
+                    <fname>Yassine</fname>
+                    <lname>MADANI</lname>
+                </fullname>
+                <birthdate>17/10/2002</birthdate>
+                <tel>0621476789</tel>
+                <email>yasmad@yahoo.fr</email>
+                <cin>TR123456</cin>
+                <cne>R97348995</cne>
+                <apoge>863122932</apoge>
+            </details>
+        </application>
+        
+        
+        <application student="student9" status="pending">
+            <details>
+                <fullname>
+                    <fname>Yahya</fname>
+                    <lname>LEMKHARBECH</lname>
+                </fullname>
+                <birthdate>31/11/2002</birthdate>
+                <tel>90192749812</tel>
+                <email>lemkharbech@yahoo.fr</email>
+                <cin>KF623456</cin>
+                <cne>J2389419</cne>
+                <apoge>1974982693</apoge>
+            </details>
+        </application>
+        
+        
+        <application student="student10" status="pending">
+            <details>
+                <fullname>
+                <fname>Abdelmoughith</fname>
+                <lname>EL AOUMARI</lname>
+                </fullname>
+                <birthdate>19/10/2002</birthdate>
+                <tel>7498234823</tel>
+                <email>abdo@yahoo.fr</email>
+                <cin>JJ123456</cin>
+                <cne>8273489220</cne>
+                <apoge>209907349823</apoge>
+            </details>
+        </application>
+</applications>
+</school>
