@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+    <xs:element name="school">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="users"/>
+                <xs:element ref="departments" minOccurs="1"/>
+                <xs:element ref="filieres" minOccurs="1"/>
+                <xs:element ref="matieres" minOccurs="1"/>
+                <xs:element ref="students" minOccurs="1"/>
+                <xs:element ref="professeurs" minOccurs="1"/>
+                <xs:element ref="applications" minOccurs="1"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="users">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="user" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="user">
+        <xs:complexType>
+            <xs:attribute name="password" type="xs:string" use="required"/>
+            <xs:attribute name="role" type="xs:string" use="required"/>
+            <xs:attribute name="username" type="xs:string" use="required"/>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="departments">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="department" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="department">
+        <xs:complexType>
+            <xs:attribute name="id" type="xs:string" use="required"/>
+            <xs:attribute name="name" type="xs:string" use="required"/>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="filieres">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="filiere" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="filiere">
+        <xs:complexType>
+            <xs:attribute name="department" type="xs:string" use="required"/>
+            <xs:attribute name="id" type="xs:string" use="required"/>
+            <xs:attribute name="name" type="xs:string" use="required"/>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="matieres">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="matiere" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="matiere">
+        <xs:complexType>
+            <xs:attribute name="filiere" type="xs:string" use="required"/>
+            <xs:attribute name="id" type="xs:string" use="required"/>
+            <xs:attribute name="name" type="xs:string" use="required"/>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="students">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="student" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="student">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="details"/>
+            </xs:sequence>
+            <xs:attribute name="id" type="xs:string" use="required"/>
+            <xs:attribute name="username" type="xs:string" use="required"/>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="details">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="fullname"/>
+                <xs:element name="birthdate" type="xs:string" minOccurs="1"/>
+                <xs:element name="tel" type="xs:string" minOccurs="1"/>
+                <xs:element name="email" type="xs:string" minOccurs="1"/>
+                <xs:element name="cin" type="xs:string" minOccurs="1"/>
+                <xs:element name="cne" type="xs:string" minOccurs="1"/>
+                <xs:element name="apoge" type="xs:decimal" minOccurs="1"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="fullname">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="fname" type="xs:string" minOccurs="1"/>
+                <xs:element name="lname" type="xs:string" minOccurs="1"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="professeurs">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="professeur" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="professeur">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="details3"/>
+            </xs:sequence>
+            <xs:attribute name="id" type="xs:string" use="required"/>
+            <xs:attribute name="department" type="xs:string" use="required"/>
+            <xs:attribute name="username" type="xs:string" use="required"/>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="details2">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="MoyRegio" type="xs:decimal"/>
+                <xs:element name="MoyNatio" type="xs:decimal"/>
+                <xs:element name="MoyGen" type="xs:decimal"/>
+                <xs:element name="Classement" type="xs:integer"/>
+                <xs:element name="Mention" type="xs:string"/>
+                <xs:element name="Date" type="xs:date"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="applications">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="application" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="application">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="details2"/>
+            </xs:sequence>
+            <xs:attribute name="status" type="xs:string" use="required" />
+            <xs:attribute name="student" type="xs:string" use="required"/>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="details3">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="fullname"/>
+                <xs:element name="birthdate" type="xs:string" minOccurs="1"/>
+                <xs:element name="tel" type="xs:string" minOccurs="1"/>
+                <xs:element name="email" type="xs:string" minOccurs="1"/>
+                <xs:element name="cin" type="xs:string" minOccurs="1"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
