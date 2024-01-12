@@ -28,7 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($authenticated) {
         // Redirect to the admin dashboard after successful login
-        header("Location: admin_dashboard.xsl");
+        header("Location: etudiantsdashboard.php");
         exit;
     } else {
         ?>

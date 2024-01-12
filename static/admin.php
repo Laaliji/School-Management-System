@@ -5,7 +5,7 @@ $xml->load('xml/DATA2.xml');
 
 // Create XSLT processor
 $xsl = new DOMDocument;
-$xsl->load('admin_dashboard.xsl');
+$xsl->load('xml/admin_dashboard.xsl');
 
 // Create XSLT processor and load XSL stylesheet
 $proc = new XSLTProcessor;

@@ -105,6 +105,8 @@
                 <xs:element name="cin" type="xs:string" minOccurs="1"/>
                 <xs:element name="cne" type="xs:string" minOccurs="1"/>
                 <xs:element name="apoge" type="xs:decimal" minOccurs="1"/>
+                <xs:element name="adresse" type="xs:string" minOccurs="1"/>
+                <xs:element name="mark" type="xs:decimal" minOccurs="1"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
@@ -146,6 +148,8 @@
                 <xs:element name="Classement" type="xs:integer"/>
                 <xs:element name="Mention" type="xs:string"/>
                 <xs:element name="Date" type="xs:date"/>
+                <xs:element name="ville" type="xs:string"/>
+           
             </xs:sequence>
         </xs:complexType>
     </xs:element>

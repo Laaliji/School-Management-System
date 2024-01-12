@@ -1,4 +1,6 @@
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', '1');
 
 session_start();
 
@@ -11,50 +13,56 @@ function createProfessor($data) {
 
         // Check if loading the XML file was successful
         if ($xml) {
-            // Generate a new ID for the professor based on the existing IDs
-            $existingIds = $xml->xpath('//professeur/@id');
-            $maxId = 0;
+            // Check if the username, email, and cin are unique
+            if (isUniqueProfessor($xml, $data['username'], $data['email'], $data['cin'])) {
+                // Generate a new ID for the professor based on the existing IDs
+                $existingIds = $xml->xpath('//professeur/@id');
+                $maxId = 0;
 
-            foreach ($existingIds as $existingId) {
-                $id = (int)$existingId;
-                if ($id > $maxId) {
-                    $maxId = $id;
+                foreach ($existingIds as $existingId) {
+                    $id = (int)$existingId;
+                    if ($id > $maxId) {
+                        $maxId = $id;
+                    }
                 }
+
+                $newId = $maxId + 1;
+
+                // Create a new user node
+                $newUser = $xml->users->addChild('user');
+                $newUser->addAttribute('username', $data['username']);
+                $newUser->addAttribute('password', $data['password']);
+                $newUser->addAttribute('role', 'professor');
+
+                // Create a new professor node
+                $newProfessor = $xml->professeurs->addChild('professeur');
+                $newProfessor->addAttribute('id', $newId); // Use the new generated ID for the professor
+                $newProfessor->addAttribute('department', $data['department']);
+                $newProfessor->addAttribute('username', $data['username']);
+
+                // Add details to the new professor
+                $newDetails = $newProfessor->addChild('details3');
+                $newDetails->addChild('fullname')->addChild('fname', $data['firstname']);
+                $newDetails->fullname->addChild('lname', $data['lastname']);
+                $newDetails->addChild('birthdate', $data['birthdate']);
+                $newDetails->addChild('tel', $data['tel']);
+                $newDetails->addChild('email', $data['email']);
+                $newDetails->addChild('cin', $data['cin']);
+
+                // Save the changes to the XML file
+                $xml->asXML($xmlFile);
+
+                // Debug: Check if the data is retrieved
+                echo "Data retrieved successfully.";
+
+                // Redirect to indexprof.php after successful signup
+                header('Location: http://localhost/SchoolManagement/static/loginprof.php');
+                exit;
+            } else {
+                // Debug: Username, email, or cin is not unique
+                $errorMessage = "Username, email, or cin is already in use.";
+                echo "<script>alert('$errorMessage');</script>";
             }
-
-            $newId = $maxId + 1;
-
-            // Create a new user node
-            $newUser = $xml->users->addChild('user');
-            $newUser->addAttribute('username', $data['username']);
-            $newUser->addAttribute('password', $data['password']);
-            $newUser->addAttribute('role', 'professor');
-
-            // Create a new professor node
-            $newProfessor = $xml->professeurs->addChild('professeur');
-            $newProfessor->addAttribute('id', $newId); // Use the new generated ID for the professor
-            $newProfessor->addAttribute('department', $data['department']);
-            $newProfessor->addAttribute('username', $data['username']);
-            $newProfessor->addAttribute('password', $data['password']); // Added password attribute for professor
-
-            // Add details to the new professor
-            $newDetails = $newProfessor->addChild('details3');
-            $newDetails->addChild('fullname')->addChild('fname', $data['firstname']);
-            $newDetails->fullname->addChild('lname', $data['lastname']);
-            $newDetails->addChild('birthdate', $data['birthdate']);
-            $newDetails->addChild('tel', $data['tel']);
-            $newDetails->addChild('email', $data['email']);
-            $newDetails->addChild('cin', $data['cin']);
-
-            // Save the changes to the XML file
-            $xml->asXML($xmlFile);
-
-            // Debug: Check if the data is retrieved
-            echo "Data retrieved successfully.";
-
-            // Redirect to indexprof.php after successful signup
-            header('Location: indexprof.php');
-            exit;
         } else {
             // Debug: Check if there is an error loading the XML file
             echo "Failed to load XML file.";
@@ -63,6 +71,17 @@ function createProfessor($data) {
         // Debug: Check if the XML file exists
         echo "XML file does not exist.";
     }
+}
+
+function isUniqueProfessor($xml, $username, $email, $cin) {
+    // Check if the username, email, and cin are unique among professors
+    $existingUsernames = $xml->xpath('//professeur/@username');
+    $existingEmails = $xml->xpath('//professeur/details3/email');
+    $existingCINs = $xml->xpath('//professeur/details3/cin');
+
+    return !in_array($username, $existingUsernames) &&
+           !in_array($email, $existingEmails) &&
+           !in_array($cin, $existingCINs);
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -80,16 +99,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             'cin' => $_POST['cin']
         ];
 
-        // Debug: Check if the form data is received
-        echo "Form data received successfully.";
-
         // Create the new professor
         createProfessor($signupData);
-        // No need to set $message here, as we are redirecting
     }
 }
-
 ?>
+
+
+
 
 
 <!DOCTYPE html>
@@ -133,7 +150,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <div class="text-center mt-4">
                             <h1 class="h2">Sign Up</h1>
                             <p class="lead">
-                                Veuillez remplir ces informations pour créer votre compte
+                               <strong>Veuillez remplir ces informations pour créer votre compte</strong>
                             </p>
                         </div>
 
@@ -141,46 +158,46 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             <div class="card-body">
                                 <div class="m-sm-3">
                                     
-                                    <form method="POST" action="signup" enctype="multipart/form-data">
+                                    <form method="POST" action="signup.php" enctype="multipart/form-data">
                                         <div class="mb-3">
                                             <label class="form-label" for="username">Username</label>
                                             <input class="form-control form-control-lg" type="text" name="username"
-                                                placeholder="Enter your username" id="username" />
+                                                placeholder="Enter your username" id="username" required/>
                                         </div>
 										<div class="mb-3">
                                             <label class="form-label" for="lastname">Nom</label>
                                             <input class="form-control form-control-lg" type="text" name="lastname"
-                                                placeholder="Nom" id="lastname" />
+                                                placeholder="Nom" id="lastname" required/>
                                         </div>
 										<div class="mb-3">
                                             <label class="form-label" for="firstname">Prénom</label>
                                             <input class="form-control form-control-lg" type="text" name="firstname"
-                                                placeholder="Prénom" id="firstname" />
+                                                placeholder="Prénom" id="firstname" required/>
                                         </div>
 										<div class="mb-3">
                                             <label class="form-label" for="birthdate">Date de naissance</label>
                                             <input class="form-control form-control-lg" type="date" name="birthdate"
-                                                placeholder="Date de naissance" id="birthdate" />
+                                                placeholder="Date de naissance" id="birthdate" required/>
                                         </div>
 										<div class="mb-3">
                                             <label class="form-label" for="tel">Numéro de téléphone</label>
                                             <input class="form-control form-control-lg" type="text" name="tel"
-                                                placeholder="Numéro de téléphone" id="tel" />
+                                                placeholder="Numéro de téléphone" id="tel" required/>
                                         </div>
 										<div class="mb-3">
                                             <label class="form-label" for="cin">CIN</label>
                                             <input class="form-control form-control-lg" type="text" name="cin"
-                                                placeholder="CIN" id="cin" />
+                                                placeholder="CIN" id="cin" required/>
                                         </div>
                                         <div class="mb-3">
                                             <label class="form-label" for="email">Email</label>
                                             <input class="form-control form-control-lg" type="email" name="email"
-                                                placeholder="Email" id="email"/>
+                                                placeholder="Email" id="email" required/>
                                         </div>
                                         <div class="mb-3">
                                             <label class="form-label" for="password">Mot de passe</label>
                                             <input class="form-control form-control-lg" type="password"
-                                                name="password" placeholder="Mot de passe" id="password"/>
+                                                name="password" placeholder="Mot de passe" id="password" required/>
                                         </div>
                                         <div>
                                             <div class="form-check align-items-center">
@@ -198,7 +215,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             </div>
                         </div>
                         <div class="text-center mb-3">
-                            Vous avez déjà un compte ? <a href="indexprof.php">Log In</a>
+                            Vous avez déjà un compte ? <a href="loginprof.php">Log In</a>
                         </div>
                     </div>
                 </div>

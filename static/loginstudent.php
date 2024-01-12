@@ -14,7 +14,7 @@ function authenticateUser($username, $password, $enteredEmail, $xml) {
             $role = (string) $user[0]['role'];
 
             // Check if the user is an admin
-            if ($role === 'professor') {
+            if ($role === 'student') {
                 return true; // Authentication successful for admin
             }
 
@@ -53,10 +53,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($authenticated) {
         // Redirect based on the user's role
         $role = (string) $xml->xpath("//user[@username='{$username}']/@role")[0];
-        if ($role === 'professor') {
+        if ($role === 'student') {
             header("Location: index.html");
-        } elseif ($role === 'student') {
-            header("Location: student_dashboard.html");
+        } 
         } else {
             echo "Invalid role!";
         }
@@ -67,7 +66,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         
         <?php
     }
-}
+
 ?>
 
 <!DOCTYPE html>
@@ -91,7 +90,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <link href="css/app.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
-
+<style>
+    body {
+            background-image: url('img/photos/backgroundzlij.jpg');
+            background-size:auto;
+            background-position: center;
+            margin: 0;
+            padding: 0;
+        }
+</style>
 <body>
     <main class="d-flex w-100">
         <div class="container d-flex flex-column">
@@ -100,9 +107,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <div class="d-table-cell align-middle">
 
                         <div class="text-center mt-4">
-                            <h1 class="h2">Salut Mr Professeur!</h1>
+                            <h1 class="h2"><strong>Salut Cher Etudiant!</strong> </h1>
                             <p class="lead">
-                                Veuillez s'authentifier pour accéder à votre Dashboard
+                            <strong>Veuillez s'authentifier pour compléter votre candidature.</strong>
                             </p>
                         </div>
 
@@ -114,17 +121,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                         <div class="mb-3">
                                             <label class="form-label" for="username">Username</label>
                                             <input class="form-control form-control-lg" type="text" name="username"
-                                                placeholder="Enter your username" id="username" />
+                                                placeholder="Enter your username" id="username" required/>
                                         </div>
                                         <div class="mb-3">
                                             <label class="form-label" for="email">Email</label>
                                             <input class="form-control form-control-lg" type="email" name="email"
-                                                placeholder="Enter your email" id="email"/>
+                                                placeholder="Enter your email" id="email" required/>
                                         </div>
                                         <div class="mb-3">
                                             <label class="form-label" for="password">Password</label>
                                             <input class="form-control form-control-lg" type="password"
-                                                name="password" placeholder="Enter your password" id="password"/>
+                                                name="password" placeholder="Enter your password" id="password" required/>
                                         </div>
                                         <div>
                                             <div class="form-check align-items-center">
@@ -142,7 +149,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             </div>
                         </div>
                         <div class="text-center mb-3">
-                            Don't have an account? <a href="pages-sign-up.html">Sign up</a>
+                            Don't have an account? <a href="signupstudent.php">Sign up</a>
                         </div>
                     </div>
                 </div>
