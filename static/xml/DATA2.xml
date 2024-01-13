@@ -5,21 +5,16 @@
     <user username="admin" password="adminpass" role="admin"/>
     <user password="profpass" role="professor" username="prof1"/>
     <user password="profpass2" role="professor" username="prof2"/>
-    <user username="student1" password="studentpass" role="student"/>
-    <user username="student2" password="studentpass2" role="student"/>
-    <user username="student22" password="hello" role="student"/>
-    <user username="stud55" password="omari" role="student"/>
-    <user username="std" password="mido" role="student"/>
-    <user username="walid23" password="ww" role="student"/>
-    <user username="walid23" password="ww" role="student"/>
-    <user username="abdeltif12" password="12345" role="student"/>
-  </users>
+    <user username="prof4" password="bayar" role="professor"/>
+    <user username="stud55" password="abdo" role="student"/>
+  <user username="cul12" password="basakri" role="professor"/></users>
   <!-- Departments -->
   <departments>
     <department id="2" name="Economie"/>
     <department id="3" name="Electrique"/>
     <!-- Add more departments as needed -->
     <department id="4" name="Informatique"/>
+    <department id="5" name="Litterature"/>
   </departments>
   <!-- Filières (Study Programs) -->
   <filieres>
@@ -28,6 +23,7 @@
     <filiere id="103" name="Techniques de Management" department="2"/>
     <filiere id="104" name="Genie Electrique" department="3"/>
     <!-- Add more filières as needed -->
+    <filiere id="105" name="Langue arabe" department="5"/>
   </filieres>
   <!-- Courses (Matieres) -->
   <matieres>
@@ -35,6 +31,7 @@
     <matiere id="1002" name="Analyse Numérique 2" filiere="104"/>
     <matiere id="2001" name="Organisation des entreprises" filiere="103"/>
     <!-- Add more matieres as needed -->
+    <matiere id="2002" name="Etudes islamiques" filiere="105"/>
   </matieres>
   <!-- Students -->
   <students>
@@ -42,47 +39,47 @@
       <details>
         <fullname>
           <fname>Zakariae</fname>
-          <lname>alami</lname>
+          <lname>LAALIJI</lname>
         </fullname>
-        <birthdate>09/12/2002</birthdate>
-        <tel>7374628443</tel>
-        <email>laaliji@yahoo.fr</email>
-        <cin>AB123456</cin>
-        <cne>R123456789</cne>
-        <apoge>917492360</apoge>
-        <adresse>wwwwww</adresse>
+        <birthdate>2003-09-26</birthdate>
+        <tel>0652199597</tel>
+        <email>zakariae.laaliji@gmail.com</email>
+        <cin>t320011</cin>
+        <cne>R137304620</cne>
+        <apoge>674532</apoge>
+        <adresse>Hassania 2 Bloc B numéro 55 El Alia Mohammedia</adresse>
+        <mark>14</mark>
+      </details>
+    </student>
+    <student id="2" username="Ahmed_med">
+      <details>
+        <fullname>
+          <fname>ahmed</fname>
+          <lname>ahmed</lname>
+        </fullname>
+        <birthdate>2002-11-11</birthdate>
+        <tel>912473928093</tel>
+        <email>ahmed@gmail.com</email>
+        <cin>k827921</cin>
+        <cne>jdqwjk</cne>
+        <apoge>93218</apoge>
+        <adresse>street 1 apartment 6</adresse>
         <mark>0</mark>
       </details>
     </student>
-    <student id="2" username="student2">
+    <student id="3" username="yahya12">
       <details>
         <fullname>
-          <fname>Yahya</fname>
-          <lname>fwefwe</lname>
+          <fname>yahya</fname>
+          <lname>saoud</lname>
         </fullname>
-        <birthdate>05/10/2002</birthdate>
-        <tel>494837234</tel>
-        <email>sss@yahoo.fr</email>
-        <cin>AC143456</cin>
-        <cne>R128456789</cne>
-        <apoge>12864926482</apoge>
-        <adresse>hhhhhhhhh</adresse>
-        <mark>0</mark>
-      </details>
-    </student>
-    <student id="3" username="student3">
-      <details>
-        <fullname>
-          <fname>hamza</fname>
-          <lname>moutia</lname>
-        </fullname>
-        <birthdate>04/11/2002</birthdate>
-        <tel>92348932</tel>
-        <email>hmz@yahoo.fr</email>
-        <cin>T736821</cin>
-        <cne>R1284569231</cne>
-        <apoge>823789273</apoge>
-        <adresse>hhhhhhhhh</adresse>
+        <birthdate>2002-01-03</birthdate>
+        <tel>0681737129</tel>
+        <email>yahya@gmail.com</email>
+        <cin>l8251823</cin>
+        <cne>K72961823</cne>
+        <apoge>0901272</apoge>
+        <adresse>street 2</adresse>
         <mark>0</mark>
       </details>
     </student>
@@ -95,7 +92,7 @@
           <fname>Abderrahman</fname>
           <lname>Chekry</lname>
         </fullname>
-        <birthdate>01/11/1985</birthdate>
+        <birthdate>1985-11-01</birthdate>
         <tel>123456789</tel>
         <email>Chekry@example.com</email>
         <cin>XY987654</cin>
@@ -107,18 +104,42 @@
           <fname>Jamal</fname>
           <lname>BAKKAS</lname>
         </fullname>
-        <birthdate>03/10/1975</birthdate>
+        <birthdate>1975-07-03</birthdate>
         <tel>823498862</tel>
         <email>bakkas@example.com</email>
         <cin>k736127</cin>
       </details3>
     </professeur>
+    <professeur id="102" department="4" username="prof3">
+      <details3>
+        <fullname>
+          <fname>Khadija</fname>
+          <lname>ARHID</lname>
+        </fullname>
+        <birthdate>1987-10-03</birthdate>
+        <tel>823498862</tel>
+        <email>arhid@example.com</email>
+        <cin>kc36777</cin>
+      </details3>
+    </professeur>
     <!-- Add more professeurs as needed -->
-  </professeurs>
+    <professeur id="103" department="3" username="prof4">
+      <details3>
+        <fullname>
+          <fname>Abdelouahed</fname>
+          <lname>BAYAR</lname>
+        </fullname>
+        <birthdate>1963-04-06</birthdate>
+        <tel>06543532367</tel>
+        <email>bayar@gmail.com</email>
+        <cin>T5764743</cin>
+      </details3>
+    </professeur>
+  <professeur id="104" department="5" username="cul12"><details3><fullname><fname>mounir</fname><lname>bassakri</lname></fullname><birthdate>1969-03-12</birthdate><tel>237462378642</tel><email>basakri@yahoo.fr</email><cin>J8237428</cin></details3></professeur></professeurs>
   <!-- Student Applications -->
   <applications>
     <!-- Student 1 -->
-    <application student="student1" status="pending">
+    <application student="student1" status="acceptée">
       <details2>
         <MoyRegio>15.50</MoyRegio>
         <MoyNatio>17.10</MoyNatio>
@@ -126,10 +147,34 @@
         <Classement>12</Classement>
         <Mention>Très Bien</Mention>
         <Date>2022-12-06</Date>
-        <ville/>
+        <ville>safi</ville>
+        <filiere>105</filiere>
       </details2>
     </application>
     <!-- Student 2 -->
-    <!-- Add more applications as needed -->
+    <application student="Ahmed_med" status="acceptée">
+      <details2>
+        <MoyRegio>14</MoyRegio>
+        <MoyNatio>19</MoyNatio>
+        <MoyGen>16</MoyGen>
+        <Classement>14</Classement>
+        <Mention>bien</Mention>
+        <Date>2021-11-11</Date>
+        <ville>Mohammedia</ville>
+        <filiere>102</filiere>
+      </details2>
+    </application>
+    <application student="yahya12" status="acceptée">
+      <details2>
+        <MoyRegio>12</MoyRegio>
+        <MoyNatio>18</MoyNatio>
+        <MoyGen>15</MoyGen>
+        <Classement>20</Classement>
+        <Mention>bien</Mention>
+        <Date>2021-12-12</Date>
+        <ville>mrakch</ville>
+        <filiere>101</filiere>
+      </details2>
+    </application>
   </applications>
 </school>

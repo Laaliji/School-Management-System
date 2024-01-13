@@ -158,7 +158,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             <div class="card-body">
                                 <div class="m-sm-3">
                                     
-                                    <form method="POST" action="signup.php" enctype="multipart/form-data">
+                                    <form method="POST" action="signupprof.php" enctype="multipart/form-data">
                                         <div class="mb-3">
                                             <label class="form-label" for="username">Username</label>
                                             <input class="form-control form-control-lg" type="text" name="username"

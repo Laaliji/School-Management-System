@@ -149,6 +149,7 @@
                 <xs:element name="Mention" type="xs:string"/>
                 <xs:element name="Date" type="xs:date"/>
                 <xs:element name="ville" type="xs:string"/>
+                <xs:element name="filiere" type="xs:string"></xs:element>
            
             </xs:sequence>
         </xs:complexType>

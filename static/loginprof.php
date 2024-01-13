@@ -13,9 +13,9 @@ function authenticateUser($username, $password, $enteredEmail, $xml) {
         if ($password === $storedPassword && isset($user[0]['username'])) {
             $role = (string) $user[0]['role'];
 
-            // Check if the user is an admin
+            // Check if the user is a professor
             if ($role === 'professor') {
-                return true; // Authentication successful for admin
+                return true; // Authentication successful for professor
             }
         }
     }
@@ -33,23 +33,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $authenticated = authenticateUser($username, $password, $enteredEmail, $xml);
 
     if ($authenticated) {
-        // Redirect based on the user's role
-        $role = (string) $xml->xpath("//user[@username='{$username}']/@role")[0];
-        if ($role === 'professor') {
-            header("Location: dashboardprof.html");
-        }
-        } else {
-            ?>
-                <div class="alert alert-danger" role="alert">
-                    Attention! Les informations sont incorrectes.
-                </div>
+        // Store professor's department in the session
+        $professorDepartment = (int)$xml->xpath("//user[@username='{$username}']/@department")[0];
+        $_SESSION['professorDepartment'] = $professorDepartment;
 
-            
-            <?php
-        }
+        // Store professor's username in the session
+        $_SESSION['professorUsername'] = $username;
+
+        // Redirect to the professor's dashboard
+        header("Location: listeetudiants.php");
         exit;
-    } 
-
+    } else {
+        // Display authentication failure message
+        echo '<div class="alert alert-danger" role="alert">
+                Attention! Les informations sont incorrectes.
+              </div>';
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -91,9 +91,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <div class="d-table-cell align-middle">
 
                         <div class="text-center mt-4">
-                            <h1 class="h2">Salut Mr Professeur!</h1>
+                            <h1 class="h2"><strong>Salut Mr Professeur!</strong> </h1>
                             <p class="lead">
+                                <strong>
                                 Veuillez s'authentifier pour accéder à votre Dashboard
+                                </strong>
                             </p>
                         </div>
 
@@ -133,7 +135,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             </div>
                         </div>
                         <div class="text-center mb-3">
-                            Vous n'avez pas de compte <a href="signup.php">Sign up</a>
+                           <strong> Vous n'avez pas de compte </strong><a href="signupprof.php">Sign up</a>
                         </div>
                     </div>
                 </div>

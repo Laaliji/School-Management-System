@@ -233,14 +233,14 @@ function getFiliereName($filiereID)
                     </div>
 
                     <div class="card">
-                        <h5 class="card-header">Liste des matiàres</h5>
+                        <h5 class="card-header">Liste des matières</h5>
 
                         <div class="table-responsive text-nowrap">
                             <table class="table">
                                 <thead>
                                     <tr>
                                         <th>ID</th>
-                                        <th>Description</th>
+                                        <th>Matière</th>
 										<th>Filière</th>
                                         <th>Action</th>
                                     </tr>

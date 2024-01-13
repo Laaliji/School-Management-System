@@ -3,7 +3,7 @@
 $xml = simplexml_load_file('xml/DATA2.xml');
 
 // Retrieve filieres data
-$filieres = $xml->xpath('//filiere');
+$filieres = $xml->xpath('//filieres/filiere');
 
 // Retrieve departments data
 $departments = $xml->xpath('//department');
@@ -22,7 +22,7 @@ function saveXML($xml, $file)
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Add new filiere
     if (isset($_POST["add_filiere"])) {
-        $newFiliereID = max(array_map('intval', $xml->xpath('//filiere/@id'))) + 1;
+        $newFiliereID = max(array_map('intval', $xml->xpath('//filieres/filiere/@id'))) + 1;
         $newFiliereName = $_POST["new_filiere_name"];
         $newFiliereDepartmentID = $_POST["new_filiere_department"];
 
@@ -37,25 +37,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Modify filiere
-if (isset($_POST["modify_filiere"])) {
-    $filiereID = $_POST["modify_filiere_id"];
-    $filiereName = $_POST["modify_filiere_name"];
-    $filiereDepartmentID = $_POST["modify_filiere_department"];
+    if (isset($_POST["modify_filiere"])) {
+        $filiereID = $_POST["modify_filiere_id"];
+        $filiereName = $_POST["modify_filiere_name"];
+        $filiereDepartmentID = $_POST["modify_filiere_department"];
 
-    $filiere = $xml->xpath("//filiere[@id='$filiereID']")[0];
-    $filiere['name'] = $filiereName;
-    $filiere['department'] = $filiereDepartmentID;
+        $filiere = $xml->xpath("//filieres/filiere[@id='$filiereID']")[0];
+        $filiere['name'] = $filiereName;
+        $filiere['department'] = $filiereDepartmentID;
 
-    saveXML($xml, 'xml/DATA2.xml');
-    header('Location: ' . $_SERVER['PHP_SELF']); // Refresh the page after modifying a filiere
-    exit();
-}
+        saveXML($xml, 'xml/DATA2.xml');
+        header('Location: ' . $_SERVER['PHP_SELF']); // Refresh the page after modifying a filiere
+        exit();
+    }
 
     // Delete filiere
     if (isset($_POST["delete_filiere"])) {
         $filiereID = $_POST["delete_filiere_id"];
 
-        $filiere = $xml->xpath("//filiere[@id='$filiereID']")[0];
+        $filiere = $xml->xpath("//filieres/filiere[@id='$filiereID']")[0];
         unset($filiere[0]);
 
         saveXML($xml, 'xml/DATA2.xml');
@@ -63,6 +63,7 @@ if (isset($_POST["modify_filiere"])) {
         exit();
     }
 }
+
 // Function to get department name by ID
 function getDepartmentName($departmentID)
 {
@@ -240,7 +241,7 @@ function getDepartmentName($departmentID)
                                 <thead>
                                     <tr>
                                         <th>ID</th>
-                                        <th>Description</th>
+                                        <th>Filière</th>
 										<th>Département</th>
                                         <th>Action</th>
                                     </tr>

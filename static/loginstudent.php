@@ -54,7 +54,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Redirect based on the user's role
         $role = (string) $xml->xpath("//user[@username='{$username}']/@role")[0];
         if ($role === 'student') {
-            header("Location: index.html");
+            header("Location: index.php");
         } 
         } else {
             echo "Invalid role!";

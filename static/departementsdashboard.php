@@ -224,7 +224,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                 <thead>
                                     <tr>
                                         <th>ID</th>
-                                        <th>Description</th>
+                                        <th>Departement</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
