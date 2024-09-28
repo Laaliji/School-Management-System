@@ -160,6 +160,11 @@ function getDepartmentName($departmentID)
 				<li class="sidebar-header">
 						Admin Panel
 					</li>
+                    <li class="sidebar-item ">
+                  <a class="sidebar-link" href="panel.php">
+                    <i class="align-middle" data-feather="tag"></i> <span class="align-middle">Aperçu</span>
+                  </a>
+                </li>
 					<li class="sidebar-header">
 						Pages
 					</li>

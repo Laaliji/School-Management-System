@@ -56,7 +56,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Add academic information to the application section
     $newApplication = $xml->applications->addChild('application');
     $newApplication->addAttribute('student', $username);
-    $newApplication->addAttribute('status', 'pending');
+    $newApplication->addAttribute('status', 'au cours de traitement');
     $newApplicationDetails = $newApplication->addChild('details2');
     $newApplicationDetails->addChild('MoyRegio', $moyenRegional);
     $newApplicationDetails->addChild('MoyNatio', $moyenNational);
@@ -165,9 +165,10 @@ label {
 .form-step input,
 .form-step select,
 .form-step button {
-    width: calc(100% - 20px); /* Full width with reduced spacing */
+    width: calc(50% - 20px); /* Two fields per row with reduced spacing */
     margin: 5px 0; /* Adjusted margin */
     box-sizing: border-box;
+    display: inline-block;
 }
 
 /* Add this style for responsive design (adjust breakpoints as needed) */
@@ -177,9 +178,9 @@ label {
     .form-step select,
     .form-step button {
         width: 100%;
+        display: block; /* Full width for smaller screens */
     }
 }
-
 .progress-container {
     margin-top: 10px; /* Reduced margin-top */
     display: flex;
@@ -215,69 +216,69 @@ label {
                     </div>
                 </div>
                 <div class="form-step active" id="step1" data-step="1">
-                    <h1 class="h2 mt-5">Step 1: Informations personnelles</h1>
-                    <label for="username">Username</label>
-                    <input type="text" id="username" placeholder="Enter your username" >
-                    <label for="firstName">First Name</label>
-                    <input type="text" id="firstName" placeholder="Enter your first name">
-                    <label for="lastName">Last Name</label>
-                    <input type="text" id="lastName" placeholder="Enter your last name">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" placeholder="Enter your email">
-                    <label for="cin">CIN</label>
-                    <input type="text" id="cin" placeholder="Enter your CIN">
-                    <label for="tel">Phone Number</label>
-                    <input type="tel" id="tel" placeholder="Enter your phone number">
-                    <label for="birthdate">Birthdate</label>
-                    <input type="date" id="birthdate" placeholder="Enter your birthdate">
-                    <label for="adresse">Address</label>
-                    <input type="text" id="adresse" placeholder="Enter your address"><br><br><br><br>
-                    <button onclick="nextStep(1)">Next</button>
-                </div>
+    <h1 class="h2 mt-5">Étape 1: Informations personnelles</h1>
+    <label for="username">Nom d'utilisateur</label>
+    <input type="text" id="username" placeholder="Entrez votre nom d'utilisateur" required>
+    <label for="firstName">Prénom</label>
+    <input type="text" id="firstName" placeholder="Entrez votre prénom" required>
+    <label for="lastName">Nom de famille</label>
+    <input type="text" id="lastName" placeholder="Entrez votre nom de famille" required>
+    <label for="email">E-mail</label>
+    <input type="email" id="email" placeholder="Entrez votre adresse e-mail" required>
+    <label for="cin">CIN</label>
+    <input type="text" id="cin" placeholder="Entrez votre CIN" required>
+    <label for="tel">Numéro de téléphone</label>
+    <input type="tel" id="tel" placeholder="Entrez votre numéro de téléphone" required>
+    <label for="birthdate">Date de naissance</label>
+    <input type="date" id="birthdate" placeholder="Entrez votre date de naissance" required>
+    <label for="adresse">Adresse</label>
+    <input type="text" id="adresse" placeholder="Entrez votre adresse" required><br><br><br><br>
+    <button onclick="nextStep(1)">Suivant</button>
+</div>
 
-                <div class="form-step" id="step2" data-step="2">
-                    <h1 class="h2 mt-5">Step 2: Informations académiques</h1>
-                    <label for="cne">CNE</label>
-                    <input type="text" id="cne" placeholder="Enter your CNE">
-                    <label for="apoge">Apoge</label>
-                    <input type="text" id="apoge" placeholder="Enter your apoge">
-                    <label for="moyenRegional">Moyen Regional</label>
-                    <input type="text" id="moyenRegional" placeholder="Enter your moyen regional">
-                    <label for="moyenNational">Moyen National</label>
-                    <input type="text" id="moyenNational" placeholder="Enter your moyen national">
-                    <label for="moyenGeneral">Moyen General</label>
-                    <input type="text" id="moyenGeneral" placeholder="Enter your moyen general">
-                    <label for="classement">Classement</label>
-                    <input type="text" id="classement" placeholder="Enter your classement">
-                    <label for="mention">Mention</label>
-                    <input type="text" id="mention" placeholder="Enter your mention">
-                    <label for="date">Date</label>
-                    <input type="date" id="date" placeholder="Enter the date">
-                    <label for="ville">Ville</label>
-                    <input type="text" id="ville" placeholder="Enter your city"><br><br><br><br>
-                    <button onclick="prevStep(2)">Previous</button>
-                    <button onclick="nextStep(2)">Next</button>
-                </div>
+<div class="form-step" id="step2" data-step="2">
+    <h1 class="h2 mt-5">Étape 2: Informations académiques</h1>
+    <label for="cne">CNE</label>
+    <input type="text" id="cne" placeholder="Entrez votre CNE" required>
+    <label for="apoge">Numéro Apogé</label>
+    <input type="text" id="apoge" placeholder="Entrez votre Num apogé" required>
+    <label for="moyenRegional">Moyen Régional</label>
+    <input type="text" id="moyenRegional" placeholder="Entrez votre moyen régional" required>
+    <label for="moyenNational">Moyen National</label>
+    <input type="text" id="moyenNational" placeholder="Entrez votre moyen national" required>
+    <label for="moyenGeneral">Moyen Général</label>
+    <input type="text" id="moyenGeneral" placeholder="Entrez votre moyen général" required>
+    <label for="classement">Classement</label>
+    <input type="text" id="classement" placeholder="Entrez votre classement" required>
+    <label for="mention">Mention</label>
+    <input type="text" id="mention" placeholder="Entrez votre mention" required>
+    <label for="date">Date d'obtention de bac</label>
+    <input type="date" id="date" placeholder="Entrez la date" required>
+    <label for="ville">Ville d'obtention de bac</label>
+    <input type="text" id="ville" placeholder="Entrez votre ville" required><br><br><br><br>
+    <button onclick="prevStep(2)">Précédent</button>
+    <button onclick="nextStep(2)">Suivant</button>
+</div>
 
-                <div class="form-step" id="step3" data-step="3">
-                    <h1 class="h2 mt-5">Step 3: Choix de la candidature</h1>
-                    <label for="filiere">Choose your major</label>
-                    <select id="filiere">
-                        <?php foreach ($filieres->filiere as $filiere) : ?>
-                            <option value="<?= $filiere['id'] ?>"><?= $filiere['name'] ?></option>
-                        <?php endforeach; ?>
-                    </select>
-                    <br><br><br>
-                    <button onclick="prevStep(3)">Previous</button>
-                    <button onclick="submitForm()">Submit</button>
-                </div>
+<div class="form-step" id="step3" data-step="3">
+    <h1 class="h2 mt-5">Étape 3: Choix de la candidature</h1>
+    <label for="filiere">Choisissez votre filière voulue :</label>
+    <select id="filiere">
+        <?php foreach ($filieres->filiere as $filiere) : ?>
+            <option value="<?= $filiere['id'] ?>"><?= $filiere['name'] ?></option>
+        <?php endforeach; ?>
+    </select>
+    <br><br><br>
+    <button onclick="prevStep(3)">Précédent</button>
+    <button onclick="submitForm()">Soumettre</button>
+</div>
 
-                <div class="form-step thanks-message" id="thanksStep">
-                    <h1 class="h2 mt-5">Thank you for your submission!</h1>
-                    <p>Your application has been submitted successfully.</p>
-                    <button class="return-home-button" onclick="returnHome()">Revenir à la page d'accueil</button>
-                </div>
-            </div>
+<div class="form-step thanks-message" id="thanksStep">
+    <h1 class="h2 mt-5">Merci pour votre soumission !</h1>
+    <p>Votre candidature a été soumise avec succès.</p>
+    <button class="return-home-button" onclick="returnHome()">Revenir à la page d'accueil</button>
+</div>
+
 
         </div>
     </main>
@@ -330,7 +331,7 @@ label {
 
             // Use Ajax to submit data to the server
             $.ajax({
-                url: 'hh.php',
+                url: 'inscription.php',
                 type: 'POST',
                 data: {
                     username: username,
@@ -386,4 +387,3 @@ label {
 </body>
 
 </html>
-

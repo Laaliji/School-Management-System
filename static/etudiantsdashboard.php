@@ -23,8 +23,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["process_application"])
         if ($applicationNode) {
             $applicationNode = $applicationNode[0];
 
-            // Update the application status
-            $applicationNode['status'] = $applicationStatus;
+            // Update the application status based on the submitted value
+            if ($applicationStatus === "acceptée" || $applicationStatus === "refusée") {
+                $applicationNode['status'] = $applicationStatus;
+            } else {
+                echo "Invalid application status: " . $applicationStatus;
+                exit();
+            }
 
             // Save the updated XML file
             $xml->asXML('xml/DATA2.xml');
@@ -35,10 +40,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["process_application"])
         } else {
             echo "Application node not found for student ID: " . $studentId;
         }
-    } else {
-        echo "Student node not found for student ID: " . $studentId;
-    }
+        
+    } 
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -76,6 +81,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["process_application"])
         max-height: 500px; /* Adjust the height as needed */
         overflow-y: auto;
     }
+
+    .btn-approve,
+    .btn-reject {
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+    }
+
+    .btn-approve img,
+    .btn-reject img {
+        width: 20px;
+        height: 20px;
+        display: inline-block;
+    }
+    form{
+        display: inline-block;
+    }
 </style>
 
 <body>
@@ -90,6 +112,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["process_application"])
                     <li class="sidebar-header">
                         Admin Panel
                     </li>
+                    <li class="sidebar-item ">
+                  <a class="sidebar-link" href="panel.php">
+                    <i class="align-middle" data-feather="tag"></i> <span class="align-middle">Aperçu</span>
+                  </a>
+                </li>
                     <li class="sidebar-header">
                         Pages
                     </li>
@@ -152,9 +179,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["process_application"])
                 <div class="container-fluid p-0">
 
                     <h1 class="h3 mb-3"><strong>Gestion</strong> des étudiants</h1>
+                    <!-- Add this section inside your <div class="container-fluid p-0"> before the <div class="card"> -->
+                    <div class="row mb-3">
+
 
                     <div class="card">
-                        <h5 class="card-header">Liste d'attente des étudiants</h5>
+                        <h5 class="card-header">Liste des étudiants et leurs candidatures</h5>
 
                         <div class="table-responsive text-nowrap">
                             <table class="table">
@@ -199,7 +229,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["process_application"])
                                         // Find the filière name based on the filière id in the application
                                         $filiereId = (string)$applicationNode->details2->filiere;
                                         $filiereName = $xml->xpath("//filieres/filiere[@id='{$filiereId}']/@name");
-                                        $filiereName = $filiereName ? (string)$filiereName[0] : 'Unknown Filiere';
+                                        $filiereName = $filiereName ? (string)$filiereName[0] : 'Filiere Inconnue';
                                         ?>
 
                                         <tr>
@@ -223,16 +253,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["process_application"])
                                             <td><?= $filiereName; ?></td>
                                             <td><?= $applicationNode['status']; ?></td>
                                             <td>
-                                                <form method="post">
-                                                    <input type="hidden" name="student_id" value="<?= $student['id'] ?>">
-                                                    <input type="hidden" name="application_status" value="acceptée">
-                                                    <button type="submit" name="process_application" class="btn btn-success">Approuver candidature</button>
-                                                </form>
-                                                <form method="post">
-                                                    <input type="hidden" name="student_id" value="<?= $student['id'] ?>">
-                                                    <input type="hidden" name="application_status" value="refusée">
-                                                    <button type="submit" name="process_application" class="btn btn-danger">Rejeter candidature</button>
-                                                </form>
+                                            <form method="post">
+                                                <input type="hidden" name="student_id" value="<?= $student['id'] ?>">
+                                                <input type="hidden" name="application_status" value="acceptée">
+                                                <button type="submit" name="process_application" class="btn-approve">
+                                                    <img src="img/icons/accepte.png" alt="Accept" />
+                                                </button>
+                                            </form>
+                                            <form method="post">
+                                                <input type="hidden" name="student_id" value="<?= $student['id'] ?>">
+                                                <input type="hidden" name="application_status" value="refusée">
+                                                <button type="submit" name="process_application" class="btn-reject">
+                                                    <img src="img/icons/rejete.png" alt="Reject" />
+                                                </button>
+                                            </form>
+
+
                                             </td>
                                         </tr>
 
@@ -260,7 +296,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["process_application"])
     </div>
 
     <script src="js/app.js"></script>
-
+ 
 </body>
 
 </html>

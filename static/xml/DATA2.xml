@@ -7,7 +7,10 @@
     <user password="profpass2" role="professor" username="prof2"/>
     <user username="prof4" password="bayar" role="professor"/>
     <user username="stud55" password="abdo" role="student"/>
-  <user username="cul12" password="basakri" role="professor"/></users>
+    <user username="cul12" password="basakri" role="professor"/>
+    <user username="hicham15" password="hichamox" role="professor"/>
+    <user username="dakir12" password="abdo" role="professor"/>
+  </users>
   <!-- Departments -->
   <departments>
     <department id="2" name="Economie"/>
@@ -15,6 +18,7 @@
     <!-- Add more departments as needed -->
     <department id="4" name="Informatique"/>
     <department id="5" name="Litterature"/>
+    <department id="6" name="test"/>
   </departments>
   <!-- Filières (Study Programs) -->
   <filieres>
@@ -23,7 +27,7 @@
     <filiere id="103" name="Techniques de Management" department="2"/>
     <filiere id="104" name="Genie Electrique" department="3"/>
     <!-- Add more filières as needed -->
-    <filiere id="105" name="Langue arabe" department="5"/>
+    <filiere id="105" name="Langue arabeeee" department="5"/>
   </filieres>
   <!-- Courses (Matieres) -->
   <matieres>
@@ -41,14 +45,14 @@
           <fname>Zakariae</fname>
           <lname>LAALIJI</lname>
         </fullname>
-        <birthdate>2003-09-26</birthdate>
-        <tel>0652199597</tel>
+        <birthdate>2003-02-26</birthdate>
+        <tel>065427597</tel>
         <email>zakariae.laaliji@gmail.com</email>
-        <cin>t320011</cin>
+        <cin>t300041</cin>
         <cne>R137304620</cne>
         <apoge>674532</apoge>
-        <adresse>Hassania 2 Bloc B numéro 55 El Alia Mohammedia</adresse>
-        <mark>14</mark>
+        <adresse>masira 2</adresse>
+        <mark>0</mark>
       </details>
     </student>
     <student id="2" username="Ahmed_med">
@@ -64,7 +68,7 @@
         <cne>jdqwjk</cne>
         <apoge>93218</apoge>
         <adresse>street 1 apartment 6</adresse>
-        <mark>0</mark>
+        <mark>14</mark>
       </details>
     </student>
     <student id="3" username="yahya12">
@@ -80,13 +84,77 @@
         <cne>K72961823</cne>
         <apoge>0901272</apoge>
         <adresse>street 2</adresse>
+        <mark>14</mark>
+      </details>
+    </student>
+    <student id="5" username="student66">
+      <details>
+        <fullname>
+          <fname>omar</fname>
+          <lname>omari</lname>
+        </fullname>
+        <birthdate>2003-10-10</birthdate>
+        <tel>324983</tel>
+        <email>omar@yahoo.fr</email>
+        <cin>U76321876</cin>
+        <cne>K89217389</cne>
+        <apoge>802387498237</apoge>
+        <adresse>djewhjf</adresse>
+        <mark>19</mark>
+      </details>
+    </student>
+    <student id="6" username="zakariae14.exe">
+      <details>
+        <fullname>
+          <fname>zakariae</fname>
+          <lname>laaliji</lname>
+        </fullname>
+        <birthdate>2003-03-29</birthdate>
+        <tel>0652199597</tel>
+        <email>zakarialaalijihh2003@gmail.com</email>
+        <cin>T3200832</cin>
+        <cne>R1373043720</cne>
+        <apoge>23546187</apoge>
+        <adresse>HassaniaM ohammedia</adresse>
+        <mark>13</mark>
+      </details>
+    </student>
+    <student id="7" username="hasna12">
+      <details>
+        <fullname>
+          <fname>hasna</fname>
+          <lname>hassouni</lname>
+        </fullname>
+        <birthdate>2000-01-01</birthdate>
+        <tel>0260182721</tel>
+        <email>hasna@gmail.com</email>
+        <cin>Y7258192</cin>
+        <cne>MC62832628</cne>
+        <apoge>823726383</apoge>
+        <adresse>alia saada 34</adresse>
+        <mark>15</mark>
+      </details>
+    </student>
+    <student id="8" username="abdo13">
+      <details>
+        <fullname>
+          <fname>abdo</fname>
+          <lname>alami</lname>
+        </fullname>
+        <birthdate>2003-11-11</birthdate>
+        <tel>06826819733</tel>
+        <email>abdo@gmail.com</email>
+        <cin>T2619362</cin>
+        <cne>R52821681</cne>
+        <apoge>877178312</apoge>
+        <adresse>area 51 hh</adresse>
         <mark>0</mark>
       </details>
     </student>
   </students>
   <!-- Professeurs -->
   <professeurs>
-    <professeur id="100" department="4" username="prof1">
+    <professeur id="100" department="3" username="prof1">
       <details3>
         <fullname>
           <fname>Abderrahman</fname>
@@ -135,7 +203,43 @@
         <cin>T5764743</cin>
       </details3>
     </professeur>
-  <professeur id="104" department="5" username="cul12"><details3><fullname><fname>mounir</fname><lname>bassakri</lname></fullname><birthdate>1969-03-12</birthdate><tel>237462378642</tel><email>basakri@yahoo.fr</email><cin>J8237428</cin></details3></professeur></professeurs>
+    <professeur id="104" department="5" username="cul12">
+      <details3>
+        <fullname>
+          <fname>mounir</fname>
+          <lname>bassakri</lname>
+        </fullname>
+        <birthdate>1969-03-12</birthdate>
+        <tel>237462378642</tel>
+        <email>basakri@yahoo.fr</email>
+        <cin>J8237428</cin>
+      </details3>
+    </professeur>
+    <professeur id="105" department="5" username="hicham15">
+      <details3>
+        <fullname>
+          <fname>hicham</fname>
+          <lname>hachimi</lname>
+        </fullname>
+        <birthdate>1999-12-12</birthdate>
+        <tel>0617243566</tel>
+        <email>hichamox@yahoo.fr</email>
+        <cin>T142653</cin>
+      </details3>
+    </professeur>
+    <professeur id="106" department="4" username="dakir12">
+      <details3>
+        <fullname>
+          <fname>abdo</fname>
+          <lname>dakirallah</lname>
+        </fullname>
+        <birthdate>2000-11-11</birthdate>
+        <tel>921882719812</tel>
+        <email>h@gmil.com</email>
+        <cin>ejqwje932</cin>
+      </details3>
+    </professeur>
+  </professeurs>
   <!-- Student Applications -->
   <applications>
     <!-- Student 1 -->
@@ -173,6 +277,54 @@
         <Mention>bien</Mention>
         <Date>2021-12-12</Date>
         <ville>mrakch</ville>
+        <filiere>101</filiere>
+      </details2>
+    </application>
+    <application student="student66" status="refusée">
+      <details2>
+        <MoyRegio>15</MoyRegio>
+        <MoyNatio>14.78</MoyNatio>
+        <MoyGen>16</MoyGen>
+        <Classement>10</Classement>
+        <Mention>bien</Mention>
+        <Date>2021-10-10</Date>
+        <ville>taza</ville>
+        <filiere>102</filiere>
+      </details2>
+    </application>
+    <application student="zakariae14.exe" status="acceptée">
+      <details2>
+        <MoyRegio>17.10</MoyRegio>
+        <MoyNatio>13.62</MoyNatio>
+        <MoyGen>14.78</MoyGen>
+        <Classement>18</Classement>
+        <Mention>Bien</Mention>
+        <Date>2021-02-06</Date>
+        <ville>Mohammedia</ville>
+        <filiere>101</filiere>
+      </details2>
+    </application>
+    <application student="hasna12" status="acceptée">
+      <details2>
+        <MoyRegio>12</MoyRegio>
+        <MoyNatio>14</MoyNatio>
+        <MoyGen>13</MoyGen>
+        <Classement>28</Classement>
+        <Mention>assez bien</Mention>
+        <Date>2022-04-04</Date>
+        <ville>tahla</ville>
+        <filiere>101</filiere>
+      </details2>
+    </application>
+    <application student="abdo13" status="acceptée">
+      <details2>
+        <MoyRegio>15</MoyRegio>
+        <MoyNatio>16</MoyNatio>
+        <MoyGen>15</MoyGen>
+        <Classement>10</Classement>
+        <Mention>bien</Mention>
+        <Date>2021-11-11</Date>
+        <ville>safi</ville>
         <filiere>101</filiere>
       </details2>
     </application>
